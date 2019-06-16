@@ -6,7 +6,6 @@ skip_branch_with_pr: true
 
 os:
   - Visual Studio 2017
-  - Visual Studio 2015
 
 platform:
   - x64
@@ -41,4 +40,9 @@ build:
   verbosity: normal
 
 after_build:
-  - c:\jet\build\bin\Release\unit_tests.exe
+  - 7z a jet.7z c:\jet\build
+  
+artifacts:
+  - path: jet.7z
+    name: 'jet-win-x86_64'
+  
