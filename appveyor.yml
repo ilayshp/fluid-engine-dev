@@ -40,9 +40,11 @@ build:
   verbosity: normal
 
 after_build:
+  - cd c:\jet
   - 7z a c:\jet\jet.7z c:\jet\build
   
 artifacts:
-  - path: jet\jet.7z
+  - cd c:\jet
+  - path: jet.7z
     name: 'jet-win-x86_64'
   
