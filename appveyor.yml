@@ -42,8 +42,10 @@ build:
 after_build:
   - cd c:\jet
   - 7z a jet_py27_vs2017.7z c:\jet\build\ -xr!.vs
+  - 7z a jet_external.7z c:\jet\external\
   
 artifacts:
   - path: jet_py27_vs2017.7z
     name: 'jet-py27-win-64'
-  
+  - path: jet_external.7z
+    name: 'jet-external'
