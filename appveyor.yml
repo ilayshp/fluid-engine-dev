@@ -27,12 +27,12 @@ install:
       $env:PYTHON = "27"
       if ($env:PLATFORM -eq "x64") { $env:PYTHON = "$env:PYTHON-x64" }
       $env:PATH = "C:\Python$env:PYTHON\;C:\Python$env:PYTHON\Scripts\;$env:PATH"
-      $env:JET_TASKING_SYSTEM = "OpenMP"
+      $env:JET_TASKING_SYSTEM = "CPP11Threads"
 
 before_build:
   - md c:\jet\build
   - cd c:\jet\build
-  - cmake .. -G "%CMAKE_GENERATOR%" -A "%CMAKE_ARCH%" -DJET_TASKING_SYSTEM=OpenMP
+  - cmake .. -G "%CMAKE_GENERATOR%" -A "%CMAKE_ARCH%" -DJET_TASKING_SYSTEM=CPP11Threads
 
 build:
   project: c:\jet\build\jet.sln
@@ -41,9 +41,9 @@ build:
 
 after_build:
   - cd c:\jet
-  - 7z a jet.7z c:\jet\build\ -xr!.vs
+  - 7z a jet_py27_vs2017.7z c:\jet\build\ -xr!.vs
   
 artifacts:
-  - path: jet.7z
-    name: 'jet-win-x86_64_OpenMP'
+  - path: jet_py27_vs2017.7z
+    name: 'jet-py27-win-64'
   
